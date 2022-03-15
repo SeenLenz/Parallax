@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bahiana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+$ztrans_1: -200px;
+$ztrans_2: -400px;
+$ztrans_2_5: -500px;
+$ztrans_3: -600px;
+$ztrans_4: -800px;
+$scale_1: 1.44444445;
+$scale_2: 1.88888888;
+$scale_2_5: 2.11111111;
+$scale_3: 2.333333333;
+$scale_4: 2.77777777777;
+
+@mixin align_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 4em;
+    color: #000;
+    width: 100vw;
+
+    .nav-bar{
+        height: 60px;
+        width: 100vw;
+    }
+
+    .parallax_wrapper{
+        margin: auto 0px;
+        position: relative;
+        width: 1920px;
+        height: 100vh;
+        overflow-y: visible;
+        overflow-x: hidden;
+        perspective: 450px;
+
+        .outro_screen {
+            height: 100vh;
+            background-color: wheat;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .navbar {
+            width: 100vw;
+            float: left;
+            position: sticky;
+            top: 20px;
+            left: 20px;
+
+            ul{
+                background-color: rgba($color: #000000, $alpha: .1);
+                border-radius: 20px;
+                width: 450px;
+                display: flex;
+                list-style-type: none;
+                justify-content: space-around;
+
+                .logoholder {
+                    background-image: url("../img/logo_1.png");
+                    background-size: cover;
+                    width: 60px;
+                    height: 60px;
+                }
+
+                li {
+                    color: white;
+                    padding: 15px 20px;
+                    font-size: 20px;
+                    
+                }
+            }
+        }
+
+        .parallax_group {
+            width: 1920px;
+            position: relative;
+            height: 100vh;
+            z-index: -1;
+            transform-style: preserve-3d;
+
+            .parallax_layer {
+                position: absolute;
+                inset: 0;
+                @include align_center()
+            }
+
+            .layer_1{
+                background-image: url("../img/layer_1.png");
+                background-repeat: no-repeat;
+                transform: translateZ($ztrans_1) scale($scale_1);
+                display: flex;
+            }
+            .layer_2{
+                background-image: url("../img/layer_2.png");
+                background-repeat: no-repeat;
+                transform: translateZ($ztrans_2) scale($scale_2);
+            }
+            .layer_3{
+                background-image: url("../img/layer_3.png");
+                background-repeat: no-repeat;
+                transform: translateZ($ztrans_3) scale($scale_3);
+            }
+            .layer_2_5{
+                transform: translateZ($ztrans_2_5) scale($scale_2_5);
+                h1{
+                    font-size: 300px;
+                    color: white;
+                    font-family: 'Comfortaa', 'Bahiana', cursive;
+                }
+            }
+            .layer_4{
+                background-image: url("../img/layer_4.png");
+                background-repeat: no-repeat;
+                transform: translateZ($ztrans_4) scale($scale_4);
+            }
+        }
+    }
+}

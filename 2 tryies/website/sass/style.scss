@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin align_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 4em;
+    color: #fff;
+
+    .parallax_wrapper {
+        height: 100vh;
+        overflow-y: auto;
+        //overflow-x: hidden;
+        perspective: 300px;
+    
+        // .intro_screen {
+        //     height: 100vh;
+        //     background-color: tomato;
+        //     @include align_center()
+        // }
+
+        .outro_screen {
+            height: 100vh;
+            background-color: teal;
+            @include align_center()
+        }
+
+        .parallax_group {
+            position: relative;
+            height: 100vh;
+            transform-style: preserve-3d;
+        
+            .parallax_layer {
+                position: absolute;
+                inset: 0;
+                @include align_center()
+            }
+
+            .base_layer{
+                // scale calculation: 1 + ((Z transform value * -1) / perspective)
+                transform: translateZ(-300px) scale(2.1);
+            }
+
+            .mid_layer{
+                transform: translateZ(0);
+            }
+
+            .top_layer{
+                transform: translateZ(150px) scale(0.5)
+            }
+        }
+        #intro {
+            z-index: 0;
+        }
+
+        #group_1 {
+            z-index: -1;
+        }
+        
+        #group_1 > .base_layer{
+            background-color: crimson;
+        }
+
+        #group_2 {z-index: -1;}
+        
+        #group_2 > .mid_layer{
+            background-color: greenyellow;
+        }
+
+        #outro {}
+
+    }
+}
+

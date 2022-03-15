@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 4em;
+  color: #fff;
+}
+
+body .parallax_wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-perspective: 300px;
+          perspective: 300px;
+}
+
+body .parallax_wrapper .outro_screen {
+  height: 100vh;
+  background-color: teal;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .parallax_wrapper .parallax_group {
+  position: relative;
+  height: 100vh;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+body .parallax_wrapper .parallax_group .parallax_layer {
+  position: absolute;
+  inset: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .parallax_wrapper .parallax_group .base_layer {
+  -webkit-transform: translateZ(-300px) scale(2.1);
+          transform: translateZ(-300px) scale(2.1);
+}
+
+body .parallax_wrapper .parallax_group .mid_layer {
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+body .parallax_wrapper .parallax_group .top_layer {
+  -webkit-transform: translateZ(150px) scale(0.5);
+          transform: translateZ(150px) scale(0.5);
+}
+
+body .parallax_wrapper #intro {
+  z-index: 0;
+}
+
+body .parallax_wrapper #group_1 {
+  z-index: -1;
+}
+
+body .parallax_wrapper #group_1 > .base_layer {
+  background-color: crimson;
+}
+
+body .parallax_wrapper #group_2 {
+  z-index: -1;
+}
+
+body .parallax_wrapper #group_2 > .mid_layer {
+  background-color: greenyellow;
+}
+/*# sourceMappingURL=style.css.map */
