@@ -2,16 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bahiana&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 $ztrans_1: -200px;
 $ztrans_2: -400px;
-$ztrans_2_5: -500px;
 $ztrans_3: -600px;
 $ztrans_4: -800px;
-$scale_1: 1.44444445;
-$scale_2: 1.88888888;
-$scale_2_5: 2.11111111;
+$ztrans_5: -1000px;
+$ztrans_6: -1200px;
+$ztrans_7: -1400px;
+$scale_1: 1.444444445;
+$scale_2: 1.888888888;
 $scale_3: 2.333333333;
-$scale_4: 2.77777777777;
+$scale_4: 3.222222222;
+$scale_5: 3.666666666;
+$scale_6: 4.111111111;
+$scale_7: 4.333333333;
+$logo-margin: 20px;
 
 @mixin align_center {
     display: flex;
@@ -29,60 +37,68 @@ a{
     text-decoration: none;
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+}
+
 body {
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 4em;
-    color: #000;
+    color: #fff;
     width: 100vw;
+    overflow: overlay;
+    display: flex;
 
-    .nav-bar{
-        height: 60px;
-        width: 100vw;
-    }
-
-    .parallax_wrapper{
-        margin: auto 0px;
-        position: relative;
+      .parallax_wrapper{
+        scroll-behavior: smooth;
+        scroll-snap-type: y proximity;
         width: 1920px;
         height: 100vh;
-        overflow-y: visible;
+        position: relative;
+        overflow-y: scroll;
         overflow-x: hidden;
         perspective: 450px;
 
         .outro_screen {
+            scroll-snap-align: start;
             height: 100vh;
-            background-color: wheat;
+            background-color: #000d22;
             z-index: 2;
             text-align: center;
         }
+
+        #outro1{
+            color: white; 
+            background-color: #005a9b;
+        }
         
         .navbar {
-            width: 100vw;
+            width: 100%;
             float: left;
             position: sticky;
-            top: 20px;
-            left: 20px;
+            top: 0px;
+            left: 0px;
 
-            ul{
-                background-color: rgba($color: #000000, $alpha: .1);
-                border-radius: 20px;
-                width: 450px;
+            .logoholder {
+                position: absolute;
+                background-image: url("../img/logo_1.png");
+                background-size: cover;
+                width: 60px;
+                height: 60px;
+                margin: 20px;
+            }
+            
+            .navbar-right {
+                position: absolute;
+                right: 0px;
                 display: flex;
-                list-style-type: none;
-                justify-content: space-around;
-
-                .logoholder {
-                    background-image: url("../img/logo_1.png");
-                    background-size: cover;
-                    width: 60px;
-                    height: 60px;
-                }
-
-                li {
+                align-items: flex-end;
+                
+                a {
                     color: white;
-                    padding: 15px 20px;
+                    display: block;
+                    margin: 40px 40px;
                     font-size: 20px;
-                    
                 }
             }
         }
@@ -99,35 +115,136 @@ body {
                 inset: 0;
                 @include align_center()
             }
-
+            
             .layer_1{
-                background-image: url("../img/layer_1.png");
+                background-image: url("../img/background_1.2/layer_1.png");
                 background-repeat: no-repeat;
                 transform: translateZ($ztrans_1) scale($scale_1);
-                display: flex;
+                background-color: transparent;
+
+                a{
+                    font-size: 0px;
+                }
+
+                .box {
+                    position: absolute;
+                    bottom: 10px;
+                    width: 40px;
+                    height: 100px;
+                    border-radius: 20px;
+                }
+
+                .box::before,
+                .box::after{
+                    content: "";
+                    position: absolute;
+                    top: 10%;
+                    left: 50%;
+                    border: 3px solid white;
+                    height: 20px;
+                    width: 20px;
+                    transform: translate(-50%, -50%) rotate(45deg);
+                    border-top: transparent;
+                    border-left: transparent;
+                    animation: arrow 1s infinite ease-in-out;
+                }
+
+                .box::after{
+                    opacity: 0%;
+                    top: 20%;
+                    animation-delay: .4s;
+                }
+
+                @keyframes arrow {
+                    0%{
+                        opacity: 0;
+                    }
+
+                    20%{
+                        opacity: 1;
+                    }
+
+                    60%{
+                        opacity: 1;
+                    }
+
+                    100%{
+                        top: 85%;
+                        opacity: 0;
+                    }
+                }
+                
+                .socials {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    position: absolute;
+                    bottom: calc(50% - ((105px + ($logo-margin * 3)) / 2));
+                    right: 5px;
+
+                a {
+                    font-size: 0px;
+                    .social_image {
+                        margin-bottom: $logo-margin;
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+            }
+
             }
             .layer_2{
-                background-image: url("../img/layer_2.png");
+                background-image: url("../img/background_1.2/layer_2.png");
                 background-repeat: no-repeat;
                 transform: translateZ($ztrans_2) scale($scale_2);
             }
-            .layer_3{
-                background-image: url("../img/layer_3.png");
-                background-repeat: no-repeat;
-                transform: translateZ($ztrans_3) scale($scale_3);
-            }
-            .layer_2_5{
-                transform: translateZ($ztrans_2_5) scale($scale_2_5);
-                h1{
-                    font-size: 300px;
-                    color: white;
-                    font-family: 'Comfortaa', 'Bahiana', cursive;
-                }
-            }
+
             .layer_4{
-                background-image: url("../img/layer_4.png");
+                background-image: url("../img/background_1.2/layer_4.png");
                 background-repeat: no-repeat;
                 transform: translateZ($ztrans_4) scale($scale_4);
+
+                h1{
+                    position: relative;
+                    font-size: 300px;
+                    color: white;
+                    font-family: 'Comfortaa', sans-serif;
+                 
+                }
+                              
+            }
+            .layer_5{
+                background-image: url("../img/background_1.2/layer_5.png");
+                background-repeat: no-repeat;
+                transform: translateZ($ztrans_5) scale($scale_5);
+            }
+            .layer_3{
+                background-image: url("../img/background_1.2/layer_6.3.png");
+                transform: translateZ($ztrans_3) scale($scale_3);
+                animation: snow_fall 75s .1s linear infinite;
+            }
+
+            .layer_6{
+                background-image: url("../img/background_1.2/layer_6.4.png");
+                transform: translateZ($ztrans_6) scale($scale_6);
+                animation: snow_fall 150s .3s linear infinite;
+            }
+
+            @keyframes snow_fall {
+                0%{
+                    background-position: 0 0;
+                }
+
+                100%{
+                    background-position: 1920px 1080px;
+                }
+                
+            }
+
+            .layer_7{
+                background-image: url("../img/background_1.2/layer_7.png");
+                background-repeat: no-repeat;
+                transform: translateZ($ztrans_7) scale($scale_7);
             }
         }
     }

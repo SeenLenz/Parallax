@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bahiana&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -13,67 +15,80 @@ a {
   text-decoration: none;
 }
 
-body {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 4em;
-  color: #000;
-  width: 100vw;
+::-webkit-scrollbar {
+  width: 0px;
 }
 
-body .nav-bar {
-  height: 60px;
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4em;
+  color: #fff;
   width: 100vw;
+  overflow: overlay;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 body .parallax_wrapper {
-  margin: auto 0px;
-  position: relative;
+  scroll-behavior: smooth;
+  -ms-scroll-snap-type: y proximity;
+      scroll-snap-type: y proximity;
   width: 1920px;
   height: 100vh;
-  overflow-y: visible;
+  position: relative;
+  overflow-y: scroll;
   overflow-x: hidden;
   -webkit-perspective: 450px;
           perspective: 450px;
 }
 
 body .parallax_wrapper .outro_screen {
+  scroll-snap-align: start;
   height: 100vh;
-  background-color: wheat;
+  background-color: #000d22;
   z-index: 2;
   text-align: center;
 }
 
+body .parallax_wrapper #outro1 {
+  color: white;
+  background-color: #005a9b;
+}
+
 body .parallax_wrapper .navbar {
-  width: 100vw;
+  width: 100%;
   float: left;
   position: -webkit-sticky;
   position: sticky;
-  top: 20px;
-  left: 20px;
+  top: 0px;
+  left: 0px;
 }
 
-body .parallax_wrapper .navbar ul {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  width: 450px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  list-style-type: none;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-body .parallax_wrapper .navbar ul .logoholder {
+body .parallax_wrapper .navbar .logoholder {
+  position: absolute;
   background-image: url("../img/logo_1.png");
   background-size: cover;
   width: 60px;
   height: 60px;
+  margin: 20px;
 }
 
-body .parallax_wrapper .navbar ul li {
+body .parallax_wrapper .navbar .navbar-right {
+  position: absolute;
+  right: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+body .parallax_wrapper .navbar .navbar-right a {
   color: white;
-  padding: 15px 20px;
+  display: block;
+  margin: 40px 40px;
   font-size: 20px;
 }
 
@@ -101,44 +116,173 @@ body .parallax_wrapper .parallax_group .parallax_layer {
 }
 
 body .parallax_wrapper .parallax_group .layer_1 {
-  background-image: url("../img/layer_1.png");
+  background-image: url("../img/background_1.2/layer_1.png");
   background-repeat: no-repeat;
   -webkit-transform: translateZ(-200px) scale(1.44444);
           transform: translateZ(-200px) scale(1.44444);
+  background-color: transparent;
+}
+
+body .parallax_wrapper .parallax_group .layer_1 a {
+  font-size: 0px;
+}
+
+body .parallax_wrapper .parallax_group .layer_1 .box {
+  position: absolute;
+  bottom: 10px;
+  width: 40px;
+  height: 100px;
+  border-radius: 20px;
+}
+
+body .parallax_wrapper .parallax_group .layer_1 .box::before,
+body .parallax_wrapper .parallax_group .layer_1 .box::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  border: 3px solid white;
+  height: 20px;
+  width: 20px;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+  border-top: transparent;
+  border-left: transparent;
+  -webkit-animation: arrow 1s infinite ease-in-out;
+          animation: arrow 1s infinite ease-in-out;
+}
+
+body .parallax_wrapper .parallax_group .layer_1 .box::after {
+  opacity: 0%;
+  top: 20%;
+  -webkit-animation-delay: .4s;
+          animation-delay: .4s;
+}
+
+@-webkit-keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    top: 85%;
+    opacity: 0;
+  }
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    top: 85%;
+    opacity: 0;
+  }
+}
+
+body .parallax_wrapper .parallax_group .layer_1 .socials {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: absolute;
+  bottom: calc(50% - ((105px + ($logo-margin * 3)) / 2));
+  right: 5px;
+}
+
+body .parallax_wrapper .parallax_group .layer_1 .socials a {
+  font-size: 0px;
+}
+
+body .parallax_wrapper .parallax_group .layer_1 .socials a .social_image {
+  margin-bottom: 20px;
+  width: 35px;
+  height: 35px;
 }
 
 body .parallax_wrapper .parallax_group .layer_2 {
-  background-image: url("../img/layer_2.png");
+  background-image: url("../img/background_1.2/layer_2.png");
   background-repeat: no-repeat;
   -webkit-transform: translateZ(-400px) scale(1.88889);
           transform: translateZ(-400px) scale(1.88889);
 }
 
-body .parallax_wrapper .parallax_group .layer_3 {
-  background-image: url("../img/layer_3.png");
+body .parallax_wrapper .parallax_group .layer_4 {
+  background-image: url("../img/background_1.2/layer_4.png");
   background-repeat: no-repeat;
-  -webkit-transform: translateZ(-600px) scale(2.33333);
-          transform: translateZ(-600px) scale(2.33333);
+  -webkit-transform: translateZ(-800px) scale(3.22222);
+          transform: translateZ(-800px) scale(3.22222);
 }
 
-body .parallax_wrapper .parallax_group .layer_2_5 {
-  -webkit-transform: translateZ(-500px) scale(2.11111);
-          transform: translateZ(-500px) scale(2.11111);
-}
-
-body .parallax_wrapper .parallax_group .layer_2_5 h1 {
+body .parallax_wrapper .parallax_group .layer_4 h1 {
+  position: relative;
   font-size: 300px;
   color: white;
-  font-family: 'Comfortaa', 'Bahiana', cursive;
+  font-family: 'Comfortaa', sans-serif;
 }
 
-body .parallax_wrapper .parallax_group .layer_4 {
-  background-image: url("../img/layer_4.png");
+body .parallax_wrapper .parallax_group .layer_5 {
+  background-image: url("../img/background_1.2/layer_5.png");
   background-repeat: no-repeat;
-  -webkit-transform: translateZ(-800px) scale(2.77778);
-          transform: translateZ(-800px) scale(2.77778);
+  -webkit-transform: translateZ(-1000px) scale(3.66667);
+          transform: translateZ(-1000px) scale(3.66667);
+}
+
+body .parallax_wrapper .parallax_group .layer_3 {
+  background-image: url("../img/background_1.2/layer_6.3.png");
+  -webkit-transform: translateZ(-600px) scale(2.33333);
+          transform: translateZ(-600px) scale(2.33333);
+  -webkit-animation: snow_fall 75s .1s linear infinite;
+          animation: snow_fall 75s .1s linear infinite;
+}
+
+body .parallax_wrapper .parallax_group .layer_6 {
+  background-image: url("../img/background_1.2/layer_6.4.png");
+  -webkit-transform: translateZ(-1200px) scale(4.11111);
+          transform: translateZ(-1200px) scale(4.11111);
+  -webkit-animation: snow_fall 150s .3s linear infinite;
+          animation: snow_fall 150s .3s linear infinite;
+}
+
+@-webkit-keyframes snow_fall {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1920px 1080px;
+  }
+}
+
+@keyframes snow_fall {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1920px 1080px;
+  }
+}
+
+body .parallax_wrapper .parallax_group .layer_7 {
+  background-image: url("../img/background_1.2/layer_7.png");
+  background-repeat: no-repeat;
+  -webkit-transform: translateZ(-1400px) scale(4.33333);
+          transform: translateZ(-1400px) scale(4.33333);
 }
 /*# sourceMappingURL=style.css.map */
