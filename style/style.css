@@ -22,8 +22,9 @@ a {
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 4em;
+  background-color: #000d22;
   color: #fff;
-  width: 100vw;
+  width: 100%;
   overflow: overlay;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -31,6 +32,7 @@ body {
 }
 
 body .parallax_wrapper {
+  margin: auto;
   scroll-behavior: smooth;
   -ms-scroll-snap-type: y proximity;
       scroll-snap-type: y proximity;
@@ -49,6 +51,18 @@ body .parallax_wrapper .outro_screen {
   background-color: #000d22;
   z-index: 2;
   text-align: center;
+}
+
+body .parallax_wrapper .outro_screen h2 {
+  padding-top: 90px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+body .parallax_wrapper .outro_screen h3 {
+  padding-top: 90px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 body .parallax_wrapper #outro1 {
@@ -93,7 +107,8 @@ body .parallax_wrapper .navbar .navbar-right a {
 }
 
 body .parallax_wrapper .parallax_group {
-  width: 1920px;
+  width: 100vw;
+  max-width: 1920px;
   position: relative;
   height: 100vh;
   z-index: -1;
@@ -118,6 +133,7 @@ body .parallax_wrapper .parallax_group .parallax_layer {
 body .parallax_wrapper .parallax_group .layer_1 {
   background-image: url("../img/background_1.2/layer_1.png");
   background-repeat: no-repeat;
+  background-position: top center;
   -webkit-transform: translateZ(-200px) scale(1.44444);
           transform: translateZ(-200px) scale(1.44444);
   background-color: transparent;
@@ -218,6 +234,7 @@ body .parallax_wrapper .parallax_group .layer_1 .socials a .social_image {
 }
 
 body .parallax_wrapper .parallax_group .layer_2 {
+  background-position: top center;
   background-image: url("../img/background_1.2/layer_2.png");
   background-repeat: no-repeat;
   -webkit-transform: translateZ(-400px) scale(1.88889);
@@ -225,6 +242,7 @@ body .parallax_wrapper .parallax_group .layer_2 {
 }
 
 body .parallax_wrapper .parallax_group .layer_4 {
+  background-position: top center;
   background-image: url("../img/background_1.2/layer_4.png");
   background-repeat: no-repeat;
   -webkit-transform: translateZ(-800px) scale(3.22222);
@@ -233,12 +251,13 @@ body .parallax_wrapper .parallax_group .layer_4 {
 
 body .parallax_wrapper .parallax_group .layer_4 h1 {
   position: relative;
-  font-size: 300px;
+  font-size: 20vw;
   color: white;
   font-family: 'Comfortaa', sans-serif;
 }
 
 body .parallax_wrapper .parallax_group .layer_5 {
+  background-position: top center;
   background-image: url("../img/background_1.2/layer_5.png");
   background-repeat: no-repeat;
   -webkit-transform: translateZ(-1000px) scale(3.66667);
@@ -246,6 +265,7 @@ body .parallax_wrapper .parallax_group .layer_5 {
 }
 
 body .parallax_wrapper .parallax_group .layer_3 {
+  background-position: top center;
   background-image: url("../img/background_1.2/layer_6.3.png");
   -webkit-transform: translateZ(-600px) scale(2.33333);
           transform: translateZ(-600px) scale(2.33333);
@@ -254,6 +274,7 @@ body .parallax_wrapper .parallax_group .layer_3 {
 }
 
 body .parallax_wrapper .parallax_group .layer_6 {
+  background-position: top center;
   background-image: url("../img/background_1.2/layer_6.4.png");
   -webkit-transform: translateZ(-1200px) scale(4.11111);
           transform: translateZ(-1200px) scale(4.11111);
